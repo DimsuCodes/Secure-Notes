@@ -19,10 +19,7 @@ export function authMiddleware(req,res,next) {
       req.user = data;
     } catch(err) {
       console.log('Invalid token');
-      console.log('Token I got:', token);       // 👀 spy line 1
-      console.log('Why:', err.message);         // 👀 spy line 2
       return res.status(401).json({ message: 'Invalid token.' });
-      
     }
     next();
     
